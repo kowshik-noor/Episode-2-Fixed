@@ -9,21 +9,23 @@
 module.exports = class mock {
   load() {}
   start() {
+    //set the code to repeat without pausing discord itself.
     setInterval(function () {
-      //set the code to repeat without pausing discord itself.
       var a = document.querySelector("span[data-slate-string]");
+
+      //get what the user is typing
       if (a != null || a != undefined) {
         var UserTyping = document.querySelector(
           "span[data-slate-string]"
         ).textContent;
-        //get what the user is typing
 
+        //check if the user has typed the proper syntax
         if (
           UserTyping.startsWith("|mock") &&
           UserTyping.charAt(UserTyping.length - 1) == "|"
         ) {
-          //check if the user has typed the proper syntax
-          var cache = [UserTyping.length - 1]; // convert into ThE mOcK cAsE
+          // convert into ThE mOcK cAsE
+          var cache = [UserTyping.length - 1];
           let NewMessage = UserTyping;
           NewMessage = NewMessage.replace("|mock ", "");
           NewMessage = NewMessage.replace("|", "");
